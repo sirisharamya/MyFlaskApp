@@ -1,0 +1,30 @@
+Step 1: Create a Freestyle Job
+Access Jenkins:
+
+Open your browser and go to http://localhost:8081 to access Jenkins.
+Create a New Job:
+
+Click on "New Item".
+Enter the name of the job, such as Flask_Deployment.
+Select Freestyle project.
+Click OK.
+
+
+
+Step 2: Configure the Job
+Source Code Management:
+
+Under the Source Code Management section, select Git.
+In the Repository URL field, enter the HTTPS URL of your Flask application's GitHub repository (e.g., https://github.com/sirisharamya/MyFlaskApp.git).
+If the repository is private, add the necessary credentials (click Add to add GitHub credentials).
+
+Build Steps:
+
+Add Execute Windows Batch Command (for Windows)
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+
+Now Check in the page with the url as:
+http://localhost:5000 (Command to check the output: flask run --host=0.0.0.0 --port=5000)
